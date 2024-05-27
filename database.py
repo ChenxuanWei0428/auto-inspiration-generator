@@ -13,7 +13,8 @@ def db_setup():
     except Exception as e:
         print(e)
 
-def input
+def input():
+    pass
 
 if __name__ == "__main__":
     db_setup()
