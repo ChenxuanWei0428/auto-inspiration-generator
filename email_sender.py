@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 from text_generation import generate_inspriation_text
 
-def send_email(sender_email, sender_password, recipient_email, content):
+def send_email(sender_email, sender_password, recipient_email, subject, body):
     # Set up the server
     server = smtplib.SMTP(host='smtp.gmail.com', port=587)
     server.starttls()
@@ -15,9 +15,6 @@ def send_email(sender_email, sender_password, recipient_email, content):
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = recipient_email
-
-    #generate text
-    subject, body = generate_inspriation_text(content)
     
     # Attach the body of the email to the MIME message
     msg['Subject'] = subject
@@ -35,10 +32,7 @@ if __name__ == "__main__":
     recipient_email = os.getenv("RECEIVER_EMAIL")
 
     
-    content = {
-        "sender_name": "小狗头",
-        "receiver_name": "包包",
-        "category": "romentic"
-    }
+    subject = "test subject"
+    body = "test body"
 
-    send_email(sender_email, sender_password, recipient_email, content)
+    send_email(sender_email, sender_password, recipient_email, subject, body)

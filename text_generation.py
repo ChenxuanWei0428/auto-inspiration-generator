@@ -50,4 +50,7 @@ if __name__ == "__main__":
     }
 
 
-    generate_inspriation_text(content)
+    subject, body = generate_inspriation_text(content)
+    print(subject)
+    print("---")
+    print(body)
